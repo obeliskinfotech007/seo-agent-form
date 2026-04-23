@@ -22,18 +22,18 @@
   .logo-mark svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .logo-text { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
   h1 { font-size: 26px; font-weight: 600; color: var(--text); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.5rem; }
-  .subtitle { font-size: 14px; color: var(--muted); font-weight: 400; line-height: 1.5; }
+  .subtitle { font-size: 14px; color: var(--muted); line-height: 1.5; }
   .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 1rem; }
   .field { margin-bottom: 1.5rem; }
   .field:last-child { margin-bottom: 0; }
-  label { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+  label.field-label { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
   .required { color: var(--accent); margin-left: 2px; }
-  .hint { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 400; }
+  .hint { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
   textarea, input[type="text"] { width: 100%; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; outline: none; transition: border-color 0.15s; resize: vertical; line-height: 1.6; }
   input[type="text"] { font-family: 'DM Sans', sans-serif; font-size: 14px; height: 42px; resize: none; }
   textarea:focus, input[type="text"]:focus { border-color: var(--border-focus); background: #fff; }
   textarea::placeholder, input::placeholder { color: #B8B5AD; }
-  .section-label { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+  .section-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
   .section-label .req { color: var(--accent); }
   .radio-group { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .radio-option { display: flex; align-items: center; gap: 12px; padding: 13px 16px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.1s; }
@@ -41,32 +41,30 @@
   .radio-option:hover { background: var(--bg); }
   .radio-option.selected { background: #FFF5F3; }
   .radio-option input[type="radio"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
-  .radio-label { flex: 1; }
-  .radio-title { font-size: 14px; font-weight: 500; color: var(--text); display: block; letter-spacing: -0.01em; }
+  .radio-label-text { flex: 1; }
+  .radio-title { font-size: 14px; font-weight: 500; color: var(--text); display: block; }
   .radio-desc { font-size: 12px; color: var(--muted); display: block; margin-top: 1px; }
-  .dynamic-fields { display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border); animation: fadeIn 0.2s ease; }
+  .dynamic-fields { display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border); }
   .dynamic-fields.visible { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
   .fields-title { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .radio-mini-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
-  .radio-mini { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; color: var(--text); font-weight: 400; }
+  .radio-mini { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; color: var(--text); }
   .radio-mini input[type="radio"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
   .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
-  .price-option { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 13px; color: var(--text); transition: all 0.1s; font-weight: 400; }
+  .price-option { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 13px; color: var(--text); transition: all 0.1s; }
   .price-option:hover { border-color: var(--accent); background: #FFF5F3; }
   .price-option input[type="radio"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
   .price-option.selected { border-color: var(--accent); background: #FFF5F3; }
-  .submit-btn { width: 100%; height: 48px; background: var(--accent); color: white; border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: background 0.15s, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .submit-btn { width: 100%; height: 48px; background: var(--accent); color: white; border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .submit-btn:hover { background: var(--accent-hover); }
-  .submit-btn:active { transform: scale(0.99); }
   .submit-btn:disabled { background: #C8B8B5; cursor: not-allowed; }
-  .submit-btn .spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+  .spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .success-state { display: none; text-align: center; padding: 3rem 1rem; }
   .success-icon { width: 56px; height: 56px; background: #D1FAE5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
   .success-icon svg { width: 24px; height: 24px; stroke: var(--success); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .success-title { font-size: 20px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .success-title { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
   .success-msg { font-size: 14px; color: var(--muted); line-height: 1.6; }
   .error-msg { display: none; font-size: 12px; color: var(--accent); margin-top: 6px; }
 </style>
@@ -87,9 +85,9 @@
   <form id="seoForm">
     <div class="form-card">
       <div class="field">
-        <label>Page URLs <span class="required">*</span></label>
+        <label class="field-label">Page URLs <span class="required">*</span></label>
         <p class="hint">One URL per line</p>
-        <textarea id="pageUrls" rows="4" placeholder="https://client.com/&#10;https://client.com/services/&#10;https://client.com/about/" required></textarea>
+        <textarea id="pageUrls" rows="4" placeholder="https://client.com/&#10;https://client.com/services/&#10;https://client.com/about/"></textarea>
         <div class="error-msg" id="urlError">Please enter at least one URL</div>
       </div>
     </div>
@@ -97,33 +95,33 @@
     <div class="form-card">
       <div class="section-label">Website type <span class="req">*</span></div>
       <div class="radio-group">
-        <label class="radio-option" id="opt-global">
-  <input type="radio" name="siteType" value="global">
-  <div class="radio-label">
-    <span class="radio-title">Global service site</span>
-    <span class="radio-desc">Agency, SaaS, consulting — no location targeting</span>
-  </div>
-</label>
-<label class="radio-option" id="opt-local">
-  <input type="radio" name="siteType" value="local">
-  <div class="radio-label">
-    <span class="radio-title">Local service site</span>
-    <span class="radio-desc">Plumber, dentist, lawyer — city-based targeting</span>
-  </div>
-</label>
-<label class="radio-option" id="opt-ecommerce">
-  <input type="radio" name="siteType" value="ecommerce">
-  <div class="radio-label">
-    <span class="radio-title">E-commerce site</span>
-    <span class="radio-desc">Products, online store — buying intent keywords</span>
-  </div>
-</label>
+        <div class="radio-option" id="opt-global">
+          <input type="radio" name="siteType" value="global" id="radio-global">
+          <div class="radio-label-text">
+            <span class="radio-title">Global service site</span>
+            <span class="radio-desc">Agency, SaaS, consulting — no location targeting</span>
+          </div>
+        </div>
+        <div class="radio-option" id="opt-local">
+          <input type="radio" name="siteType" value="local" id="radio-local">
+          <div class="radio-label-text">
+            <span class="radio-title">Local service site</span>
+            <span class="radio-desc">Plumber, dentist, lawyer — city-based targeting</span>
+          </div>
+        </div>
+        <div class="radio-option" id="opt-ecommerce">
+          <input type="radio" name="siteType" value="ecommerce" id="radio-ecommerce">
+          <div class="radio-label-text">
+            <span class="radio-title">E-commerce site</span>
+            <span class="radio-desc">Products, online store — buying intent keywords</span>
+          </div>
+        </div>
       </div>
 
       <div class="dynamic-fields" id="globalFields">
         <p class="fields-title">Global site details</p>
         <div class="field">
-          <label>Services offered</label>
+          <label class="field-label">Services offered</label>
           <input type="text" id="servicesOffered" placeholder="e.g. SEO, PPC, Social Media, Web Design">
         </div>
       </div>
@@ -131,21 +129,21 @@
       <div class="dynamic-fields" id="localFields">
         <p class="fields-title">Local site details</p>
         <div class="field">
-          <label>Service type</label>
+          <label class="field-label">Service type</label>
           <input type="text" id="serviceType" placeholder="e.g. Plumbing, Electrical, Legal services">
         </div>
         <div class="field-row field">
           <div>
-            <label>Target city</label>
+            <label class="field-label">Target city</label>
             <input type="text" id="targetCity" placeholder="e.g. Brisbane">
           </div>
           <div>
-            <label>Target country</label>
+            <label class="field-label">Target country</label>
             <input type="text" id="targetCountry" placeholder="e.g. Australia">
           </div>
         </div>
         <div class="field">
-          <label>City position in keywords</label>
+          <label class="field-label">City position in keywords</label>
           <div class="radio-mini-group">
             <label class="radio-mini"><input type="radio" name="cityPos" value="auto" checked> Auto-detect (recommended)</label>
             <label class="radio-mini"><input type="radio" name="cityPos" value="prefix"> Prefix — city first (Brisbane plumber)</label>
@@ -157,16 +155,16 @@
       <div class="dynamic-fields" id="ecomFields">
         <p class="fields-title">E-commerce details</p>
         <div class="field">
-          <label>Product category</label>
+          <label class="field-label">Product category</label>
           <input type="text" id="productCategory" placeholder="e.g. Skincare, Running shoes, Electronics">
         </div>
         <div class="field">
-          <label>Price range</label>
+          <label class="field-label">Price range</label>
           <div class="price-grid">
-            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="budget"> Budget</label>
-            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="mid"> Mid-range</label>
-            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="premium"> Premium</label>
-            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="luxury"> Luxury</label>
+            <div class="price-option" id="price-budget"><input type="radio" name="priceRange" value="budget"> Budget</div>
+            <div class="price-option" id="price-mid"><input type="radio" name="priceRange" value="mid"> Mid-range</div>
+            <div class="price-option" id="price-premium"><input type="radio" name="priceRange" value="premium"> Premium</div>
+            <div class="price-option" id="price-luxury"><input type="radio" name="priceRange" value="luxury"> Luxury</div>
           </div>
         </div>
       </div>
@@ -188,67 +186,91 @@
 </div>
 
 <script>
-  const WEBHOOK_URL = 'https://obeliskinfotech.app.n8n.cloud/webhook/0e610947-8a5f-455a-baf9-23d12ba04b1a';
+  var WEBHOOK_URL = 'https://obeliskinfotech.app.n8n.cloud/webhook/0e610947-8a5f-455a-baf9-23d12ba04b1a';
 
-  function selectType(type, el) {
-    document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
-    document.querySelectorAll('.dynamic-fields').forEach(f => f.classList.remove('visible'));
-    document.getElementById(type + 'Fields').classList.add('visible');
-  }
+  // Site type selection
+  document.querySelectorAll('input[name="siteType"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.radio-option').forEach(function(o) { o.classList.remove('selected'); });
+      document.querySelectorAll('.dynamic-fields').forEach(function(f) { f.classList.remove('visible'); });
+      document.getElementById('opt-' + this.value).classList.add('selected');
+      document.getElementById(this.value === 'ecommerce' ? 'ecomFields' : this.value + 'Fields').classList.add('visible');
+    });
+  });
 
-  function selectPrice(el) {
-    document.querySelectorAll('.price-option').forEach(o => o.classList.remove('selected'));
-    el.classList.add('selected');
-  }
+  // Click on the whole row also selects it
+  document.querySelectorAll('.radio-option').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var radio = this.querySelector('input[type="radio"]');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change'));
+    });
+  });
 
+  // Price range selection
+  document.querySelectorAll('input[name="priceRange"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.price-option').forEach(function(o) { o.classList.remove('selected'); });
+      document.getElementById('price-' + this.value).classList.add('selected');
+    });
+  });
+
+  document.querySelectorAll('.price-option').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var radio = this.querySelector('input[type="radio"]');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change'));
+    });
+  });
+
+  // Form submit
   document.getElementById('seoForm').addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const urls = document.getElementById('pageUrls').value.trim();
+    var urls = document.getElementById('pageUrls').value.trim();
     if (!urls) {
       document.getElementById('urlError').style.display = 'block';
       return;
     }
     document.getElementById('urlError').style.display = 'none';
 
-    const siteType = document.querySelector('input[name="siteType"]:checked');
+    var siteType = document.querySelector('input[name="siteType"]:checked');
     if (!siteType) { alert('Please select a website type.'); return; }
 
-    const btn = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const spinner = document.getElementById('spinner');
+    var btn = document.getElementById('submitBtn');
+    var btnText = document.getElementById('btnText');
+    var spinner = document.getElementById('spinner');
     btn.disabled = true;
     btnText.textContent = 'Submitting...';
     spinner.style.display = 'block';
 
-    const type = siteType.value;
-    const cityPos = document.querySelector('input[name="cityPos"]:checked');
-    const priceRange = document.querySelector('input[name="priceRange"]:checked');
+    var type = siteType.value;
+    var cityPos = document.querySelector('input[name="cityPos"]:checked');
+    var priceRange = document.querySelector('input[name="priceRange"]:checked');
+    var instructions = '';
 
-    let instructions = '';
     if (type === 'global') {
-      const services = document.getElementById('servicesOffered').value.trim();
+      var services = document.getElementById('servicesOffered').value.trim();
       instructions = 'Site type: Global service site.' + (services ? ' Services offered: ' + services + '.' : '');
     } else if (type === 'local') {
-      const serviceType = document.getElementById('serviceType').value.trim();
-      const city = document.getElementById('targetCity').value.trim();
-      const country = document.getElementById('targetCountry').value.trim();
-      const pos = cityPos ? cityPos.value : 'auto';
+      var serviceType = document.getElementById('serviceType').value.trim();
+      var city = document.getElementById('targetCity').value.trim();
+      var country = document.getElementById('targetCountry').value.trim();
+      var pos = cityPos ? cityPos.value : 'auto';
       instructions = 'Site type: Local service site.'
         + (serviceType ? ' Service type: ' + serviceType + '.' : '')
         + (city ? ' Target city: ' + city + '.' : '')
         + (country ? ' Target country: ' + country + '.' : '')
         + ' City position: ' + pos + '.';
     } else if (type === 'ecommerce') {
-      const category = document.getElementById('productCategory').value.trim();
-      const price = priceRange ? priceRange.value : 'Not specified';
+      var category = document.getElementById('productCategory').value.trim();
+      var price = priceRange ? priceRange.value : 'Not specified';
       instructions = 'Site type: E-commerce site.'
         + (category ? ' Product category: ' + category + '.' : '')
         + ' Price range: ' + price + '.';
     }
 
-    const payload = {
+    var payload = {
       'Page URLs': urls,
       'Website Type': type,
       'Instructions': instructions
@@ -263,7 +285,7 @@
       });
       document.getElementById('seoForm').style.display = 'none';
       document.getElementById('successState').style.display = 'block';
-    } catch (err) {
+    } catch(err) {
       btn.disabled = false;
       btnText.textContent = 'Run keyword research';
       spinner.style.display = 'none';
