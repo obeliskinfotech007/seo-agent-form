@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,405 +8,67 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #F7F6F2;
-    --surface: #FFFFFF;
-    --border: #E2E0D8;
-    --border-focus: #C8391A;
-    --text: #1A1916;
-    --muted: #7A7870;
-    --accent: #C8391A;
-    --accent-hover: #A82E14;
-    --success: #2D6A4F;
-    --radius: 10px;
-    --radius-lg: 16px;
+    --bg: #F7F6F2; --surface: #FFFFFF; --border: #E2E0D8;
+    --border-focus: #C8391A; --text: #1A1916; --muted: #7A7870;
+    --accent: #C8391A; --accent-hover: #A82E14; --success: #2D6A4F;
+    --radius: 10px; --radius-lg: 16px;
   }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 3rem 1rem 4rem;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 580px;
-  }
-
-  .header {
-    margin-bottom: 2.5rem;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-  }
-
-  .logo-mark {
-    width: 36px;
-    height: 36px;
-    background: var(--accent);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo-mark svg {
-    width: 18px;
-    height: 18px;
-    fill: white;
-  }
-
-  .logo-text {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-
-  h1 {
-    font-size: 26px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-  }
-
-  .subtitle {
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 400;
-    line-height: 1.5;
-  }
-
-  .form-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .field {
-    margin-bottom: 1.5rem;
-  }
-
-  .field:last-child {
-    margin-bottom: 0;
-  }
-
-  label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
-  }
-
-  .required {
-    color: var(--accent);
-    margin-left: 2px;
-  }
-
-  .hint {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 6px;
-    font-weight: 400;
-  }
-
-  textarea, input[type="text"] {
-    width: 100%;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--text);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    outline: none;
-    transition: border-color 0.15s;
-    resize: vertical;
-    line-height: 1.6;
-  }
-
-  input[type="text"] {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    height: 42px;
-    resize: none;
-  }
-
-  textarea:focus, input[type="text"]:focus {
-    border-color: var(--border-focus);
-    background: #fff;
-  }
-
-  textarea::placeholder, input::placeholder {
-    color: #B8B5AD;
-  }
-
-  .section-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.01em;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .section-label .req {
-    color: var(--accent);
-  }
-
-  .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-  }
-
-  .radio-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 16px;
-    cursor: pointer;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.1s;
-    position: relative;
-  }
-
-  .radio-option:last-child {
-    border-bottom: none;
-  }
-
-  .radio-option:hover {
-    background: var(--bg);
-  }
-
-  .radio-option.selected {
-    background: #FFF5F3;
-  }
-
-  .radio-option input[type="radio"] {
-    width: 16px;
-    height: 16px;
-    accent-color: var(--accent);
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .radio-label {
-    flex: 1;
-  }
-
-  .radio-title {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-    display: block;
-    letter-spacing: -0.01em;
-  }
-
-  .radio-desc {
-    font-size: 12px;
-    color: var(--muted);
-    display: block;
-    margin-top: 1px;
-  }
-
-  .dynamic-fields {
-    display: none;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px dashed var(--border);
-    animation: fadeIn 0.2s ease;
-  }
-
-  .dynamic-fields.visible {
-    display: block;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .fields-title {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 1rem;
-  }
-
-  .field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .radio-mini-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
-  .radio-mini {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--text);
-    font-weight: 400;
-  }
-
-  .radio-mini input[type="radio"] {
-    width: 14px;
-    height: 14px;
-    accent-color: var(--accent);
-    cursor: pointer;
-  }
-
-  .price-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 4px;
-  }
-
-  .price-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    cursor: pointer;
-    font-size: 13px;
-    color: var(--text);
-    transition: all 0.1s;
-    font-weight: 400;
-  }
-
-  .price-option:hover {
-    border-color: var(--accent);
-    background: #FFF5F3;
-  }
-
-  .price-option input[type="radio"] {
-    width: 14px;
-    height: 14px;
-    accent-color: var(--accent);
-    cursor: pointer;
-  }
-
-  .price-option.selected {
-    border-color: var(--accent);
-    background: #FFF5F3;
-  }
-
-  .submit-btn {
-    width: 100%;
-    height: 48px;
-    background: var(--accent);
-    color: white;
-    border: none;
-    border-radius: var(--radius);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 3rem 1rem 4rem; }
+  .container { width: 100%; max-width: 580px; }
+  .header { margin-bottom: 2.5rem; }
+  .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .logo-mark { width: 36px; height: 36px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .logo-mark svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .logo-text { font-size: 15px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+  h1 { font-size: 26px; font-weight: 600; color: var(--text); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.5rem; }
+  .subtitle { font-size: 14px; color: var(--muted); font-weight: 400; line-height: 1.5; }
+  .form-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; margin-bottom: 1rem; }
+  .field { margin-bottom: 1.5rem; }
+  .field:last-child { margin-bottom: 0; }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .required { color: var(--accent); margin-left: 2px; }
+  .hint { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 400; }
+  textarea, input[type="text"] { width: 100%; font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; outline: none; transition: border-color 0.15s; resize: vertical; line-height: 1.6; }
+  input[type="text"] { font-family: 'DM Sans', sans-serif; font-size: 14px; height: 42px; resize: none; }
+  textarea:focus, input[type="text"]:focus { border-color: var(--border-focus); background: #fff; }
+  textarea::placeholder, input::placeholder { color: #B8B5AD; }
+  .section-label { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+  .section-label .req { color: var(--accent); }
+  .radio-group { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .radio-option { display: flex; align-items: center; gap: 12px; padding: 13px 16px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  .radio-option:last-child { border-bottom: none; }
+  .radio-option:hover { background: var(--bg); }
+  .radio-option.selected { background: #FFF5F3; }
+  .radio-option input[type="radio"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+  .radio-label { flex: 1; }
+  .radio-title { font-size: 14px; font-weight: 500; color: var(--text); display: block; letter-spacing: -0.01em; }
+  .radio-desc { font-size: 12px; color: var(--muted); display: block; margin-top: 1px; }
+  .dynamic-fields { display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--border); animation: fadeIn 0.2s ease; }
+  .dynamic-fields.visible { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  .fields-title { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .radio-mini-group { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+  .radio-mini { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 13px; color: var(--text); font-weight: 400; }
+  .radio-mini input[type="radio"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+  .price-option { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); cursor: pointer; font-size: 13px; color: var(--text); transition: all 0.1s; font-weight: 400; }
+  .price-option:hover { border-color: var(--accent); background: #FFF5F3; }
+  .price-option input[type="radio"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
+  .price-option.selected { border-color: var(--accent); background: #FFF5F3; }
+  .submit-btn { width: 100%; height: 48px; background: var(--accent); color: white; border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; cursor: pointer; transition: background 0.15s, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
   .submit-btn:hover { background: var(--accent-hover); }
   .submit-btn:active { transform: scale(0.99); }
   .submit-btn:disabled { background: #C8B8B5; cursor: not-allowed; }
-
-  .submit-btn .spinner {
-    display: none;
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-  }
-
+  .submit-btn .spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .success-state {
-    display: none;
-    text-align: center;
-    padding: 3rem 1rem;
-  }
-
-  .success-icon {
-    width: 56px;
-    height: 56px;
-    background: #D1FAE5;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.25rem;
-  }
-
-  .success-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: var(--success);
-    fill: none;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .success-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-
-  .success-msg {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  .error-msg {
-    display: none;
-    font-size: 12px;
-    color: var(--accent);
-    margin-top: 6px;
-  }
+  .success-state { display: none; text-align: center; padding: 3rem 1rem; }
+  .success-icon { width: 56px; height: 56px; background: #D1FAE5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+  .success-icon svg { width: 24px; height: 24px; stroke: var(--success); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .success-title { font-size: 20px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+  .success-msg { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .error-msg { display: none; font-size: 12px; color: var(--accent); margin-top: 6px; }
 </style>
 </head>
 <body>
@@ -413,7 +76,7 @@
   <div class="header">
     <div class="logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
       </div>
       <span class="logo-text">Obelisk Infotech</span>
     </div>
@@ -433,7 +96,7 @@
 
     <div class="form-card">
       <div class="section-label">Website type <span class="req">*</span></div>
-      <div class="radio-group" id="siteTypeGroup">
+      <div class="radio-group">
         <label class="radio-option" onclick="selectType('global', this)">
           <input type="radio" name="siteType" value="global">
           <div class="radio-label">
@@ -484,15 +147,9 @@
         <div class="field">
           <label>City position in keywords</label>
           <div class="radio-mini-group">
-            <label class="radio-mini">
-              <input type="radio" name="cityPos" value="auto" checked> Auto-detect (recommended)
-            </label>
-            <label class="radio-mini">
-              <input type="radio" name="cityPos" value="prefix"> Prefix — city first (Brisbane plumber)
-            </label>
-            <label class="radio-mini">
-              <input type="radio" name="cityPos" value="postfix"> Postfix — city last (plumber Brisbane)
-            </label>
+            <label class="radio-mini"><input type="radio" name="cityPos" value="auto" checked> Auto-detect (recommended)</label>
+            <label class="radio-mini"><input type="radio" name="cityPos" value="prefix"> Prefix — city first (Brisbane plumber)</label>
+            <label class="radio-mini"><input type="radio" name="cityPos" value="postfix"> Postfix — city last (plumber Brisbane)</label>
           </div>
         </div>
       </div>
@@ -506,18 +163,10 @@
         <div class="field">
           <label>Price range</label>
           <div class="price-grid">
-            <label class="price-option" onclick="selectPrice(this)">
-              <input type="radio" name="priceRange" value="budget"> Budget
-            </label>
-            <label class="price-option" onclick="selectPrice(this)">
-              <input type="radio" name="priceRange" value="mid"> Mid-range
-            </label>
-            <label class="price-option" onclick="selectPrice(this)">
-              <input type="radio" name="priceRange" value="premium"> Premium
-            </label>
-            <label class="price-option" onclick="selectPrice(this)">
-              <input type="radio" name="priceRange" value="luxury"> Luxury
-            </label>
+            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="budget"> Budget</label>
+            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="mid"> Mid-range</label>
+            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="premium"> Premium</label>
+            <label class="price-option" onclick="selectPrice(this)"><input type="radio" name="priceRange" value="luxury"> Luxury</label>
           </div>
         </div>
       </div>
@@ -539,7 +188,7 @@
 </div>
 
 <script>
-  const WEBHOOK_URL = 'https://obeliskinfotech.app.n8n.cloud/form/73f666cf-e42a-4f0a-860d-a00a271f3caf';
+  const WEBHOOK_URL = 'https://obeliskinfotech.app.n8n.cloud/webhook/0e610947-8a5f-455a-baf9-23d12ba04b1a';
 
   function selectType(type, el) {
     document.querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
@@ -564,10 +213,7 @@
     document.getElementById('urlError').style.display = 'none';
 
     const siteType = document.querySelector('input[name="siteType"]:checked');
-    if (!siteType) {
-      alert('Please select a website type.');
-      return;
-    }
+    if (!siteType) { alert('Please select a website type.'); return; }
 
     const btn = document.getElementById('submitBtn');
     const btnText = document.getElementById('btnText');
@@ -576,36 +222,43 @@
     btnText.textContent = 'Submitting...';
     spinner.style.display = 'block';
 
+    const type = siteType.value;
     const cityPos = document.querySelector('input[name="cityPos"]:checked');
     const priceRange = document.querySelector('input[name="priceRange"]:checked');
 
     let instructions = '';
-    const type = siteType.value;
-
     if (type === 'global') {
       const services = document.getElementById('servicesOffered').value.trim();
-      instructions = `Site type: Global service site. Services offered: ${services || 'Not specified'}.`;
+      instructions = 'Site type: Global service site.' + (services ? ' Services offered: ' + services + '.' : '');
     } else if (type === 'local') {
       const serviceType = document.getElementById('serviceType').value.trim();
       const city = document.getElementById('targetCity').value.trim();
       const country = document.getElementById('targetCountry').value.trim();
       const pos = cityPos ? cityPos.value : 'auto';
-      instructions = `Site type: Local service site. Service type: ${serviceType || 'Not specified'}. Target city: ${city || 'Not specified'}. Target country: ${country || 'Not specified'}. City position: ${pos}.`;
+      instructions = 'Site type: Local service site.'
+        + (serviceType ? ' Service type: ' + serviceType + '.' : '')
+        + (city ? ' Target city: ' + city + '.' : '')
+        + (country ? ' Target country: ' + country + '.' : '')
+        + ' City position: ' + pos + '.';
     } else if (type === 'ecommerce') {
       const category = document.getElementById('productCategory').value.trim();
       const price = priceRange ? priceRange.value : 'Not specified';
-      instructions = `Site type: E-commerce site. Product category: ${category || 'Not specified'}. Price range: ${price}.`;
+      instructions = 'Site type: E-commerce site.'
+        + (category ? ' Product category: ' + category + '.' : '')
+        + ' Price range: ' + price + '.';
     }
 
-    const formData = new FormData();
-    formData.append('Page URLs', urls);
-    formData.append('Website Type', type);
-    formData.append('Instructions', instructions);
+    const payload = {
+      'Page URLs': urls,
+      'Website Type': type,
+      'Instructions': instructions
+    };
 
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
         mode: 'no-cors'
       });
       document.getElementById('seoForm').style.display = 'none';
