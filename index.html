@@ -97,27 +97,27 @@
     <div class="form-card">
       <div class="section-label">Website type <span class="req">*</span></div>
       <div class="radio-group">
-        <label class="radio-option" onclick="selectType('global', this)">
-          <input type="radio" name="siteType" value="global">
-          <div class="radio-label">
-            <span class="radio-title">Global service site</span>
-            <span class="radio-desc">Agency, SaaS, consulting — no location targeting</span>
-          </div>
-        </label>
-        <label class="radio-option" onclick="selectType('local', this)">
-          <input type="radio" name="siteType" value="local">
-          <div class="radio-label">
-            <span class="radio-title">Local service site</span>
-            <span class="radio-desc">Plumber, dentist, lawyer — city-based targeting</span>
-          </div>
-        </label>
-        <label class="radio-option" onclick="selectType('ecommerce', this)">
-          <input type="radio" name="siteType" value="ecommerce">
-          <div class="radio-label">
-            <span class="radio-title">E-commerce site</span>
-            <span class="radio-desc">Products, online store — buying intent keywords</span>
-          </div>
-        </label>
+        <label class="radio-option" id="opt-global">
+  <input type="radio" name="siteType" value="global">
+  <div class="radio-label">
+    <span class="radio-title">Global service site</span>
+    <span class="radio-desc">Agency, SaaS, consulting — no location targeting</span>
+  </div>
+</label>
+<label class="radio-option" id="opt-local">
+  <input type="radio" name="siteType" value="local">
+  <div class="radio-label">
+    <span class="radio-title">Local service site</span>
+    <span class="radio-desc">Plumber, dentist, lawyer — city-based targeting</span>
+  </div>
+</label>
+<label class="radio-option" id="opt-ecommerce">
+  <input type="radio" name="siteType" value="ecommerce">
+  <div class="radio-label">
+    <span class="radio-title">E-commerce site</span>
+    <span class="radio-desc">Products, online store — buying intent keywords</span>
+  </div>
+</label>
       </div>
 
       <div class="dynamic-fields" id="globalFields">
