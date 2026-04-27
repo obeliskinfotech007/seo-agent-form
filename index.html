@@ -270,11 +270,14 @@
         + ' Price range: ' + price + '.';
     }
 
-    var payload = {
-      'Page URLs': urls,
-      'Website Type': type,
-      'Instructions': instructions
-    };
+    var urlList = urls.split('\n').map(function(u) { return u.trim(); }).filter(function(u) { return u.length > 0; });
+var numberedUrls = urlList.map(function(url, i) { return i + '::' + url; }).join('\n');
+
+var payload = {
+  'Page URLs': numberedUrls,
+  'Website Type': type,
+  'Instructions': instructions
+};
 
     try {
       await fetch(WEBHOOK_URL, {
